@@ -1,0 +1,15 @@
+[Unit]
+Description=Antigravity Mobile Gateway Daemon
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/antigravity-mobile-daemon
+ExecStart=%h/antigravity-mobile-daemon/.venv/bin/python -m daemon.main
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=%h/antigravity-mobile-daemon
+
+[Install]
+WantedBy=default.target
